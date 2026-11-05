@@ -1,0 +1,32 @@
+
+{% extends "pages/base.html" %}
+
+{% block content %}
+    <h2>Learning resources</h2>
+
+    {% for resource in resources %}
+        <div class="resource">
+            <h3>{{ resource.title }}</h3>
+
+            <p>{{ resource.description }}</p>
+
+            <p>
+                Category: {{ resource.category.name }}
+            </p>
+
+            <p>
+                Type: {{ resource.resource_type|default:"General" }}
+            </p>
+
+            <p>
+                {% if resource.available %}
+                    Available
+                {% else %}
+                    Coming soon
+                {% endif %}
+            </p>
+        </div>
+    {% empty %}
+        <p>No learning resources available yet.</p>
+    {% endfor %}
+{% endblock %}
