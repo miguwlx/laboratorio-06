@@ -1,0 +1,10 @@
+{% extends "pages/base.html" %}
+{% block content %}
+    <h2>Learning resources</h2>
+    {% for resource in resources %}
+        <div>
+            <h3>{{ resource.title }}</h3>
+            <p>Category: {{ resource.category }} - {% if resource.available %}Available{% else %}Coming soon{% endif %}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
